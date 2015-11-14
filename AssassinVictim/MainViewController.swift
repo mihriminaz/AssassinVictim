@@ -7,14 +7,13 @@
 //
 
 import Foundation
-class MainViewController : UIViewController {
+class MainViewController : BaseLoginNeededViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        let loginVC : LoginViewController = LoginViewController()
-        self.navigationController?.presentViewController(loginVC, animated: true, completion: { () -> Void in
-            
-        })
-        
     }
-
+    
+    @IBAction func logout(sender: AnyObject) {
+        PFUser.logOut()
+        showLoginPage()
+    }
 }

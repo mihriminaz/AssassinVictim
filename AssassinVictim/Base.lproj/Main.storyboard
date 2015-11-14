@@ -58,6 +58,9 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="PLAY"/>
+                                <connections>
+                                    <segue destination="7KZ-Rn-cfX" kind="presentation" id="FGw-jh-Ejc"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2n-hi-Req">
                                 <rect key="frame" x="20" y="98" width="548" height="285"/>
@@ -90,11 +93,48 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Assassin vc Victim" id="4xt-NE-8Hu"/>
+                    <navigationItem key="navigationItem" title="Assassin vc Victim" id="4xt-NE-8Hu">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="wkB-3N-ntv">
+                            <connections>
+                                <action selector="logout:" destination="Hyh-yw-7gl" id="fwY-l5-hE4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQA-AL-Xum" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-312" y="-521"/>
+        </scene>
+        <!--Game Map View Controller-->
+        <scene sceneID="rdk-Ur-iJC">
+            <objects>
+                <viewController id="7KZ-Rn-cfX" customClass="GameMapViewController" customModule="AssassinVictim" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zwa-Qn-5k0"/>
+                        <viewControllerLayoutGuide type="bottom" id="OSm-nY-TYt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qHS-or-HX7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="reU-lH-QvU">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                            </mapView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="reU-lH-QvU" firstAttribute="leading" secondItem="qHS-or-HX7" secondAttribute="leading" id="Aia-Ku-nhK"/>
+                            <constraint firstItem="reU-lH-QvU" firstAttribute="top" secondItem="qHS-or-HX7" secondAttribute="top" id="Fiu-dx-gle"/>
+                            <constraint firstItem="OSm-nY-TYt" firstAttribute="top" secondItem="reU-lH-QvU" secondAttribute="bottom" id="PPX-da-g9U"/>
+                            <constraint firstAttribute="trailing" secondItem="reU-lH-QvU" secondAttribute="trailing" id="YVx-dm-83F"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fan-rw-9dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="328" y="-550"/>
         </scene>
     </scenes>
 </document>

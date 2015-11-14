@@ -23,6 +23,17 @@
 		195555211BF7BD1F00873A7C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195555201BF7BD1F00873A7C /* AudioToolbox.framework */; };
 		195555231BF7BD8900873A7C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195555221BF7BD8900873A7C /* SystemConfiguration.framework */; };
 		195555251BF7C9E800873A7C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195555241BF7C9E800873A7C /* MainViewController.swift */; };
+		195555291BF7CF2300873A7C /* GameMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195555281BF7CF2300873A7C /* GameMapViewController.swift */; };
+		1955552B1BF7CF4D00873A7C /* BaseLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955552A1BF7CF4D00873A7C /* BaseLoginViewController.swift */; };
+		1955552D1BF7D05500873A7C /* AssassinMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955552C1BF7D05500873A7C /* AssassinMapView.swift */; };
+		195555301BF7D09F00873A7C /* Victim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955552F1BF7D09F00873A7C /* Victim.swift */; };
+		195555321BF7D0A700873A7C /* Assassin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195555311BF7D0A700873A7C /* Assassin.swift */; };
+		195555341BF7D0B800873A7C /* SafePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195555331BF7D0B800873A7C /* SafePlace.swift */; };
+		195555361BF7D12200873A7C /* BaseMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195555351BF7D12200873A7C /* BaseMapView.swift */; };
+		195555381BF7D4BC00873A7C /* GlobalConstantsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195555371BF7D4BC00873A7C /* GlobalConstantsSwift.swift */; };
+		1955553A1BF7D59200873A7C /* VictimAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195555391BF7D59200873A7C /* VictimAnnotation.swift */; };
+		1955553D1BF7DE1800873A7C /* GeolocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1955553C1BF7DE1800873A7C /* GeolocationHelper.m */; };
+		1955553F1BF7DE5700873A7C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1955553E1BF7DE5700873A7C /* CoreGraphics.framework */; };
 		19F8F31D1BF7A2B5009F199B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F31C1BF7A2B5009F199B /* AppDelegate.swift */; };
 		19F8F31F1BF7A2B5009F199B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F31E1BF7A2B5009F199B /* LoginViewController.swift */; };
 		19F8F3221BF7A2B5009F199B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F8F3201BF7A2B5009F199B /* Main.storyboard */; };
@@ -68,6 +79,18 @@
 		195555201BF7BD1F00873A7C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		195555221BF7BD8900873A7C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		195555241BF7C9E800873A7C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		195555281BF7CF2300873A7C /* GameMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapViewController.swift; sourceTree = "<group>"; };
+		1955552A1BF7CF4D00873A7C /* BaseLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLoginViewController.swift; sourceTree = "<group>"; };
+		1955552C1BF7D05500873A7C /* AssassinMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssassinMapView.swift; sourceTree = "<group>"; };
+		1955552F1BF7D09F00873A7C /* Victim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Victim.swift; sourceTree = "<group>"; };
+		195555311BF7D0A700873A7C /* Assassin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assassin.swift; sourceTree = "<group>"; };
+		195555331BF7D0B800873A7C /* SafePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafePlace.swift; sourceTree = "<group>"; };
+		195555351BF7D12200873A7C /* BaseMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMapView.swift; sourceTree = "<group>"; };
+		195555371BF7D4BC00873A7C /* GlobalConstantsSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstantsSwift.swift; sourceTree = "<group>"; };
+		195555391BF7D59200873A7C /* VictimAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = VictimAnnotation.swift; sourceTree = "<group>"; };
+		1955553B1BF7DE1800873A7C /* GeolocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeolocationHelper.h; sourceTree = "<group>"; };
+		1955553C1BF7DE1800873A7C /* GeolocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeolocationHelper.m; sourceTree = "<group>"; };
+		1955553E1BF7DE5700873A7C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		19F8F3191BF7A2B5009F199B /* AssassinVictim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssassinVictim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F8F31C1BF7A2B5009F199B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19F8F31E1BF7A2B5009F199B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1955553F1BF7DE5700873A7C /* CoreGraphics.framework in Frameworks */,
 				195555231BF7BD8900873A7C /* SystemConfiguration.framework in Frameworks */,
 				195555211BF7BD1F00873A7C /* AudioToolbox.framework in Frameworks */,
 				1955551F1BF7BD0500873A7C /* libsqlite3.0.tbd in Frameworks */,
@@ -124,6 +148,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		195555261BF7CEF300873A7C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1955552A1BF7CF4D00873A7C /* BaseLoginViewController.swift */,
+				1955552C1BF7D05500873A7C /* AssassinMapView.swift */,
+				195555271BF7CF0300873A7C /* Map */,
+				19F8F31E1BF7A2B5009F199B /* LoginViewController.swift */,
+				195555241BF7C9E800873A7C /* MainViewController.swift */,
+				195555391BF7D59200873A7C /* VictimAnnotation.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		195555271BF7CF0300873A7C /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				195555281BF7CF2300873A7C /* GameMapViewController.swift */,
+				195555351BF7D12200873A7C /* BaseMapView.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		1955552E1BF7D08F00873A7C /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				1955552F1BF7D09F00873A7C /* Victim.swift */,
+				195555311BF7D0A700873A7C /* Assassin.swift */,
+				195555331BF7D0B800873A7C /* SafePlace.swift */,
+			);
+			name = DataModels;
+			sourceTree = "<group>";
+		};
+		195555401BF7EA3900873A7C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				19F8F32B1BF7A2B5009F199B /* Info.plist */,
+				195555071BF7B68400873A7C /* AssassinVictim-Bridging-Header.h */,
+				19F8F3231BF7A2B5009F199B /* AssassinVictim.xcdatamodeld */,
+				1955553B1BF7DE1800873A7C /* GeolocationHelper.h */,
+				1955553C1BF7DE1800873A7C /* GeolocationHelper.m */,
+				195555371BF7D4BC00873A7C /* GlobalConstantsSwift.swift */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		195555411BF7EA4F00873A7C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				19F8F3281BF7A2B5009F199B /* LaunchScreen.storyboard */,
+				19F8F3201BF7A2B5009F199B /* Main.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		19F8F3101BF7A2B5009F199B = {
 			isa = PBXGroup;
 			children = (
@@ -149,14 +227,11 @@
 			isa = PBXGroup;
 			children = (
 				19F8F31C1BF7A2B5009F199B /* AppDelegate.swift */,
-				19F8F31E1BF7A2B5009F199B /* LoginViewController.swift */,
-				19F8F3201BF7A2B5009F199B /* Main.storyboard */,
+				195555401BF7EA3900873A7C /* Shared */,
+				1955552E1BF7D08F00873A7C /* DataModels */,
+				195555261BF7CEF300873A7C /* ViewControllers */,
 				19F8F3261BF7A2B5009F199B /* Assets.xcassets */,
-				19F8F3281BF7A2B5009F199B /* LaunchScreen.storyboard */,
-				19F8F32B1BF7A2B5009F199B /* Info.plist */,
-				19F8F3231BF7A2B5009F199B /* AssassinVictim.xcdatamodeld */,
-				195555071BF7B68400873A7C /* AssassinVictim-Bridging-Header.h */,
-				195555241BF7C9E800873A7C /* MainViewController.swift */,
+				195555411BF7EA4F00873A7C /* UI */,
 			);
 			path = AssassinVictim;
 			sourceTree = "<group>";
@@ -182,6 +257,7 @@
 		3208F3A5E91841E26E7E2AEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1955553E1BF7DE5700873A7C /* CoreGraphics.framework */,
 				195555221BF7BD8900873A7C /* SystemConfiguration.framework */,
 				195555201BF7BD1F00873A7C /* AudioToolbox.framework */,
 				1955551E1BF7BD0500873A7C /* libsqlite3.0.tbd */,
@@ -335,9 +411,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				19F8F31F1BF7A2B5009F199B /* LoginViewController.swift in Sources */,
+				1955552D1BF7D05500873A7C /* AssassinMapView.swift in Sources */,
+				195555341BF7D0B800873A7C /* SafePlace.swift in Sources */,
+				1955553A1BF7D59200873A7C /* VictimAnnotation.swift in Sources */,
 				19F8F31D1BF7A2B5009F199B /* AppDelegate.swift in Sources */,
+				195555361BF7D12200873A7C /* BaseMapView.swift in Sources */,
+				195555301BF7D09F00873A7C /* Victim.swift in Sources */,
+				195555381BF7D4BC00873A7C /* GlobalConstantsSwift.swift in Sources */,
+				195555291BF7CF2300873A7C /* GameMapViewController.swift in Sources */,
+				195555321BF7D0A700873A7C /* Assassin.swift in Sources */,
+				1955553D1BF7DE1800873A7C /* GeolocationHelper.m in Sources */,
 				19F8F3251BF7A2B5009F199B /* AssassinVictim.xcdatamodeld in Sources */,
 				195555251BF7C9E800873A7C /* MainViewController.swift in Sources */,
+				1955552B1BF7CF4D00873A7C /* BaseLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

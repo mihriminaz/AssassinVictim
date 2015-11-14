@@ -10,5 +10,6 @@
 #define AssassinVictim_Bridging_Header_h
 
 #import <ParseFacebookUtilsV4/ParseFacebookUtilsV4.h>
+#import "GeolocationHelper.h"
 
 #endif /* AssassinVictim_Bridging_Header_h */
