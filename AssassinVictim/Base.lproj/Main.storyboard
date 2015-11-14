@@ -1,27 +1,100 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="v0E-c4-tgm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="9Zb-1o-rTr">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AssassinVictim" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="v0E-c4-tgm" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RPE-Xh-aHO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Hyh-yw-7gl" kind="relationship" relationship="rootViewController" id="AEp-0W-Vbw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rdv-8n-bus" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1206" y="-243"/>
+        </scene>
+        <!--Assassin vc Victim-->
+        <scene sceneID="ChT-fd-P3b">
+            <objects>
+                <viewController id="Hyh-yw-7gl" customClass="MainViewController" customModule="AssassinVictim" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="ci5-og-kAt"/>
+                        <viewControllerLayoutGuide type="bottom" id="iHO-Jw-ITm"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="NW2-sE-vqU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ttD-UI-uHH">
+                                <rect key="frame" x="210" y="461" width="180" height="29"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="454-oP-aEZ"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Assassin"/>
+                                    <segment title="Victim"/>
+                                </segments>
+                                <color key="tintColor" red="0.89718319950000003" green="0.70890194949999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRi-CP-P0e">
+                                <rect key="frame" x="210" y="519" width="180" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.89718319950000003" green="0.70890194949999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4SR-P5-gI1"/>
+                                    <constraint firstAttribute="width" constant="180" id="lZ0-g2-Nta"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="PLAY"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2n-hi-Req">
+                                <rect key="frame" x="20" y="98" width="548" height="285"/>
+                                <animations/>
+                                <mutableString key="text">Here comes a detail description &amp; information about the game Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </mutableString>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <string key="userLabel">Here comes a detail description &amp; information about the game Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</string>
+                            </label>
+                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iHO-Jw-ITm" firstAttribute="top" secondItem="cRi-CP-P0e" secondAttribute="bottom" constant="51" id="56J-bz-cyi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M2n-hi-Req" secondAttribute="trailing" constant="12" id="DZi-Ku-NDP"/>
+                            <constraint firstItem="M2n-hi-Req" firstAttribute="top" secondItem="ci5-og-kAt" secondAttribute="bottom" constant="34" id="WqY-Ym-Yks"/>
+                            <constraint firstItem="cRi-CP-P0e" firstAttribute="centerX" secondItem="NW2-sE-vqU" secondAttribute="centerX" id="Zxj-xh-kfb"/>
+                            <constraint firstItem="iHO-Jw-ITm" firstAttribute="top" secondItem="M2n-hi-Req" secondAttribute="bottom" priority="900" constant="108" id="aFF-jt-QIs"/>
+                            <constraint firstItem="cRi-CP-P0e" firstAttribute="top" secondItem="ttD-UI-uHH" secondAttribute="bottom" constant="30" id="iqp-FW-CZK"/>
+                            <constraint firstItem="iHO-Jw-ITm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="M2n-hi-Req" secondAttribute="bottom" constant="108" id="k4S-kq-7od"/>
+                            <constraint firstItem="ttD-UI-uHH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="M2n-hi-Req" secondAttribute="bottom" constant="20" id="u2A-Zu-1Jg"/>
+                            <constraint firstItem="ttD-UI-uHH" firstAttribute="centerX" secondItem="NW2-sE-vqU" secondAttribute="centerX" id="uz9-mH-NaU"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="M2n-hi-Req" secondAttribute="leading" id="ysG-In-6vl"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="aFF-jt-QIs"/>
+                                <exclude reference="k4S-kq-7od"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Assassin vc Victim" id="4xt-NE-8Hu"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WQA-AL-Xum" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-312" y="-521"/>
         </scene>
     </scenes>
 </document>
