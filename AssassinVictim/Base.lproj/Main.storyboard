@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQA-AL-Xum" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-312" y="-521"/>
+            <point key="canvasLocation" x="-541" y="-495"/>
         </scene>
         <!--Game Map View Controller-->
         <scene sceneID="rdk-Ur-iJC">
@@ -121,12 +121,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emt-yv-tKs">
+                                <rect key="frame" x="542" y="28" width="46" height="38"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.89718319954128201" green="0.70890194954128449" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="gEC-XT-o2I"/>
+                                    <constraint firstAttribute="width" constant="46" id="gIc-b0-hIn"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Exit"/>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="reU-lH-QvU" firstAttribute="leading" secondItem="qHS-or-HX7" secondAttribute="leading" id="Aia-Ku-nhK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="emt-yv-tKs" secondAttribute="trailing" constant="-8" id="BPw-Pt-9ce"/>
                             <constraint firstItem="reU-lH-QvU" firstAttribute="top" secondItem="qHS-or-HX7" secondAttribute="top" id="Fiu-dx-gle"/>
+                            <constraint firstItem="emt-yv-tKs" firstAttribute="top" secondItem="Zwa-Qn-5k0" secondAttribute="bottom" constant="8" id="Jfc-xg-Prx"/>
                             <constraint firstItem="OSm-nY-TYt" firstAttribute="top" secondItem="reU-lH-QvU" secondAttribute="bottom" id="PPX-da-g9U"/>
                             <constraint firstAttribute="trailing" secondItem="reU-lH-QvU" secondAttribute="trailing" id="YVx-dm-83F"/>
                         </constraints>
@@ -134,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fan-rw-9dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="328" y="-550"/>
+            <point key="canvasLocation" x="111" y="-549"/>
         </scene>
     </scenes>
 </document>

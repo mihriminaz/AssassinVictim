@@ -8,12 +8,39 @@
 
 import Foundation
 
-class Victim : NSObject {
-    var objectId: String
-    var coordinates : CLLocationCoordinate2D
-    init(coordinates:CLLocationCoordinate2D, objectId: String) {
-        self.coordinates = coordinates
+@objc public class Victim:  PFObject, PFSubclassing {
+    @NSManaged public var hitPoint : Int
+    @NSManaged public var location : PFGeoPoint
+    @NSManaged var userId: PFUser
+    
+    override public class func initialize() {
+        var onceToken : dispatch_once_t = 0;
+        dispatch_once(&onceToken) {
+            self.registerSubclass()
+        }
+    }
+
+    public class func parseClassName() -> String {
+        return "Victim"
+    }
+    
+    override public class func query() -> PFQuery? {
+        let query = PFQuery(className: Victim.parseClassName()) //1
+        //query.includeKey("VictimLocation") //2
+        query.orderByDescending("createdAt") //3
+        return query
+    }
+    
+    init(location:PFGeoPoint, objectId: String, userId: PFUser, hitPoint: Int) {
+        super.init()
+        self.location = location
         self.objectId = objectId
+        self.userId = userId
+        self.hitPoint = hitPoint
+    }
+    
+    override init() {
         super.init()
     }
+    
 }

@@ -12,7 +12,7 @@ import MapKit
 
 class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDelegate, UIAlertViewDelegate {
     @IBOutlet weak var mapView: AssassinMapView?
-    var victimList : Array <Victim> = []
+    var victimList : NSMutableArray?
     @IBOutlet weak var redoSearchButton: UIButton?
     @IBOutlet weak var relocateMeButton: UIButton?
     var resultsLoading: Bool = false
@@ -50,6 +50,7 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
         self.pageVisuals()
         self.mapView?.createMap()
         self.geoLocationChangeListener()
+        self.redoSearch()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -95,10 +96,10 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
     func userSelectedAVictim(selectedVictim: Victim!) {
         //scroll to the item in the list
         
-        if let _ = victimList.indexOf(selectedVictim)
-        {
-            
-        }
+//        if let _ = victimList.indexOfObject(selectedVictim)
+//        {
+//            
+//        }
     }
     
     func userInteractionEnabled(isEnabled:Bool){
@@ -110,6 +111,7 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
     @IBAction func redoSearchButtonPressed(sender: UIButton) {
     }
     func redoSearch(){
+        print("redoSearch")
         if self.resultsLoading == false {
             if self.mapView?.currentZoomLevel() > kSearchMaxZoomLevel {
                 // self.showErrorAlertWithMessage(NSLocalizedString("You’re way too far! Zoom in and search again.", comment:""))
@@ -117,9 +119,26 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
             else {
                 self.resultsLoading = true
                 
-                //do the call
+                self.victimList = NSMutableArray()
                 
-                self.resultsLoading = false
+                let query = Victim.query()!
+                query.findObjectsInBackgroundWithBlock { objects, error in
+                    
+                    print("findObjectsInBackgroundWithBlock")
+                    if error == nil {
+                        //2
+                        if let objects = objects as? [Victim] {
+                            self.victimList = NSMutableArray(array: objects)
+                           self.reloadMapData()
+                        }
+                    } else if let error = error {
+                        //3
+                       // self.showErrorView(error)
+                    }
+                    
+                    self.resultsLoading = false
+                }
+                
             }
         }
     }

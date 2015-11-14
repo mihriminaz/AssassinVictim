@@ -99,7 +99,8 @@ class AssassinMapView: BaseMapView {
         if victims?.count > 0 {
             var firstItemSelected = false
             for currentVictim in victims! {
-                if let location = currentVictim.coordinates as CLLocationCoordinate2D! {
+                
+                if let location = CLLocationCoordinate2DMake(currentVictim.location.latitude, currentVictim.location.longitude) as CLLocationCoordinate2D! {
                     let annotation = VictimAnnotation(coordinate: location, victim: currentVictim, title: "")
                     
                     if firstItemSelected == false && self.lastSelectedAnnotation == nil {
