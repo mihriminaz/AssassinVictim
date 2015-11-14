@@ -33,10 +33,9 @@ class AssassinMapView: BaseMapView {
         self.mapView?.delegate = self
     }
     
-    func reloadMap() {
+    func reloadMap(victims:NSMutableArray) {
+        print("reloadMap00")
         self.markUserLocation(true)
-        //TO DO: do the victim fetch here
-        let victims : Array<Victim> = []
         self.reloadPOIsInMap(victims)
     }
     
@@ -91,18 +90,26 @@ class AssassinMapView: BaseMapView {
     
     // #pragma mark - Private methods
     
-    func reloadPOIsInMap(victims : Array<Victim>?)
+    func reloadPOIsInMap(victims : NSMutableArray)
     {
+        print("reloadPOIsInMap0")
         if self.mapView?.annotations.count > 0 {
             self.mapView?.removeAnnotations((self.mapView?.annotations)!)
         }
-        if victims?.count > 0 {
+        
+        print("reloadPOIsInMap1")
+        if victims.count > 0 {
             var firstItemSelected = false
-            for currentVictim in victims! {
+            print("reloadPOIsInMap2")
+        
+            for object in victims {
+                if let currentVictim = object as? Victim {
+                    print("reloadPOIsInMap3")
                 
                 if let location = CLLocationCoordinate2DMake(currentVictim.location.latitude, currentVictim.location.longitude) as CLLocationCoordinate2D! {
                     let annotation = VictimAnnotation(coordinate: location, victim: currentVictim, title: "")
                     
+                    print("reloadPOIsInMap4")
                     if firstItemSelected == false && self.lastSelectedAnnotation == nil {
                         self.lastSelectedAnnotation = annotation
                         firstItemSelected = true
@@ -110,6 +117,7 @@ class AssassinMapView: BaseMapView {
                     self.mapView?.addAnnotation(annotation)
                 }
             }
+        }
         }
     }
     

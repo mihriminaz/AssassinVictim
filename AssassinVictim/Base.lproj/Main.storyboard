@@ -117,10 +117,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="reU-lH-QvU">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qM8-cX-W0a" customClass="AssassinMapView" customModule="AssassinVictim" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
-                            </mapView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emt-yv-tKs">
                                 <rect key="frame" x="542" y="28" width="46" height="38"/>
                                 <animations/>
@@ -136,14 +137,18 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="reU-lH-QvU" firstAttribute="leading" secondItem="qHS-or-HX7" secondAttribute="leading" id="Aia-Ku-nhK"/>
+                            <constraint firstAttribute="trailing" secondItem="qM8-cX-W0a" secondAttribute="trailing" id="6HR-Fl-0f6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="emt-yv-tKs" secondAttribute="trailing" constant="-8" id="BPw-Pt-9ce"/>
-                            <constraint firstItem="reU-lH-QvU" firstAttribute="top" secondItem="qHS-or-HX7" secondAttribute="top" id="Fiu-dx-gle"/>
                             <constraint firstItem="emt-yv-tKs" firstAttribute="top" secondItem="Zwa-Qn-5k0" secondAttribute="bottom" constant="8" id="Jfc-xg-Prx"/>
-                            <constraint firstItem="OSm-nY-TYt" firstAttribute="top" secondItem="reU-lH-QvU" secondAttribute="bottom" id="PPX-da-g9U"/>
-                            <constraint firstAttribute="trailing" secondItem="reU-lH-QvU" secondAttribute="trailing" id="YVx-dm-83F"/>
+                            <constraint firstItem="qM8-cX-W0a" firstAttribute="leading" secondItem="qHS-or-HX7" secondAttribute="leading" id="Q1T-hl-e5o"/>
+                            <constraint firstItem="OSm-nY-TYt" firstAttribute="top" secondItem="qM8-cX-W0a" secondAttribute="bottom" id="qKU-6K-fTv"/>
+                            <constraint firstItem="qM8-cX-W0a" firstAttribute="top" secondItem="qHS-or-HX7" secondAttribute="top" id="yya-WN-pME"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="qM8-cX-W0a" id="7VO-eF-II1"/>
+                        <outlet property="view" destination="qHS-or-HX7" id="MMH-kG-fKb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fan-rw-9dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

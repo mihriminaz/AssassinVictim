@@ -70,9 +70,9 @@ class BaseMapView: UIView, MKMapViewDelegate {
         if let map = self.mapView where(self.mapView?.superview != nil)
         {
             map.translatesAutoresizingMaskIntoConstraints = false
-            let dict = dictionaryOfNames(map)
-            self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(0)-[map]-(0)-|", options: .DirectionLeadingToTrailing, metrics: nil, views: dict))
-            self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(0)-[map]-(0)-|", options: .DirectionLeadingToTrailing, metrics: nil, views: dict))
+            let bindings = ["map": map]
+            self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(0)-[map]-(0)-|", options: .DirectionLeadingToTrailing, metrics: nil, views: bindings))
+            self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(0)-[map]-(0)-|", options: .DirectionLeadingToTrailing, metrics: nil, views: bindings))
         }
         super.updateConstraints()
     }

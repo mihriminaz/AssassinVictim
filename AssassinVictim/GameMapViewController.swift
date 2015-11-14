@@ -49,6 +49,7 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
         super.viewDidLoad()
         self.pageVisuals()
         self.mapView?.createMap()
+        self.mapView?.delegate = self
         self.geoLocationChangeListener()
         self.redoSearch()
     }
@@ -63,6 +64,16 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
             self.reloadMapData()
         }
         self.firstLoad = false
+        
+        let delay = 3.0 * Double(NSEC_PER_SEC)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay)), dispatch_get_main_queue()) { [weak self]() -> Void in
+            if self?.victimList?.count > 0 {
+                self?.mapView?.reloadMap((self?.victimList!)!)
+            }
+        }
+
+        
+       
     }
     
     func pageVisuals() {
@@ -113,10 +124,10 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
     func redoSearch(){
         print("redoSearch")
         if self.resultsLoading == false {
-            if self.mapView?.currentZoomLevel() > kSearchMaxZoomLevel {
-                // self.showErrorAlertWithMessage(NSLocalizedString("You’re way too far! Zoom in and search again.", comment:""))
-            }
-            else {
+//            if self.mapView?.currentZoomLevel() > kSearchMaxZoomLevel {
+//                // self.showErrorAlertWithMessage(NSLocalizedString("You’re way too far! Zoom in and search again.", comment:""))
+//            }
+//            else {
                 self.resultsLoading = true
                 
                 self.victimList = NSMutableArray()
@@ -127,11 +138,16 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
                     print("findObjectsInBackgroundWithBlock")
                     if error == nil {
                         //2
+                        print("findObjectsInBackgroundWithBlock1")
                         if let objects = objects as? [Victim] {
+                            print("findObjectsInBackgroundWithBlock2")
                             self.victimList = NSMutableArray(array: objects)
-                           self.reloadMapData()
+                           self.mapView?.reloadMap(self.victimList!)
                         }
                     } else if let error = error {
+                        
+                        print("errorerror")
+                        print(error)
                         //3
                        // self.showErrorView(error)
                     }
@@ -140,7 +156,7 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
                 }
                 
             }
-        }
+        //}
     }
     
     @IBAction func relocateMeButtonPressed(sender: UIButton) {
