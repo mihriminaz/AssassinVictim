@@ -181,7 +181,7 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
             self.mapView?.requestUserLocation(true, animated:false)
             let delay = 2.0 * Double(NSEC_PER_SEC)
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay)), dispatch_get_main_queue()) { [weak self]() -> Void in
-                self?.redoSearch()
+                self?.reloadMapData()
             }
         }
     }
@@ -208,4 +208,11 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
                 
             }, withReference: self)
     }
+    
+    @IBAction func exitButtonPressed(sender: UIButton) {
+        self.dismissViewControllerAnimated(true) { () -> Void in
+            
+        }
+    }
+    
 }

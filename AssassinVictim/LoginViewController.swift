@@ -26,12 +26,15 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
                 PFLogInFields.UsernameAndPassword.rawValue |
                     PFLogInFields.LogInButton.rawValue |
                     PFLogInFields.PasswordForgotten.rawValue |
-                PFLogInFields.SignUpButton.rawValue | PFLogInFields.Facebook.rawValue)
+                PFLogInFields.SignUpButton.rawValue
+                    //| PFLogInFields.Facebook.rawValue
+        )
 
             loginViewController.emailAsUsername = true
         loginViewController.signUpController?.delegate = self
         
         let imageView2 = UIImageView(image: UIImage(named: "Assassin"))
+        imageView2.contentMode = UIViewContentMode.ScaleAspectFit
         loginViewController.signUpController?.signUpView?.logo = imageView2
         
             self.presentViewController(loginViewController, animated: false, completion: nil)

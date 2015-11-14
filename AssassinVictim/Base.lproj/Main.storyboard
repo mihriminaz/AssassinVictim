@@ -132,6 +132,37 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Exit"/>
+                                <connections>
+                                    <action selector="exitButtonPressed:" destination="7KZ-Rn-cfX" eventType="touchUpInside" id="pgD-DC-cUc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUQ-1w-GDD">
+                                <rect key="frame" x="20" y="540" width="44" height="41"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="RCP-wK-bub"/>
+                                    <constraint firstAttribute="width" constant="44" id="san-Lz-KQt"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="around-me"/>
+                                <connections>
+                                    <action selector="relocateMeButtonPressed:" destination="7KZ-Rn-cfX" eventType="touchUpInside" id="aOH-yL-hKE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwz-rB-LVf">
+                                <rect key="frame" x="470" y="540" width="117" height="38"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.89718319950000003" green="0.70890194949999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="4mX-xd-AYW"/>
+                                    <constraint firstAttribute="width" constant="117" id="6b4-0i-U6W"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Search Again"/>
+                                <connections>
+                                    <action selector="redoSearchButtonPressed:" destination="7KZ-Rn-cfX" eventType="touchUpInside" id="t7a-C1-mG4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -139,8 +170,12 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="qM8-cX-W0a" secondAttribute="trailing" id="6HR-Fl-0f6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="emt-yv-tKs" secondAttribute="trailing" constant="-8" id="BPw-Pt-9ce"/>
+                            <constraint firstItem="OSm-nY-TYt" firstAttribute="top" secondItem="jwz-rB-LVf" secondAttribute="bottom" constant="22" id="H9h-sf-Rpc"/>
                             <constraint firstItem="emt-yv-tKs" firstAttribute="top" secondItem="Zwa-Qn-5k0" secondAttribute="bottom" constant="8" id="Jfc-xg-Prx"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="LUQ-1w-GDD" secondAttribute="leading" id="K2H-Xm-uHi"/>
+                            <constraint firstItem="OSm-nY-TYt" firstAttribute="top" secondItem="LUQ-1w-GDD" secondAttribute="bottom" constant="19" id="KD9-rT-uaz"/>
                             <constraint firstItem="qM8-cX-W0a" firstAttribute="leading" secondItem="qHS-or-HX7" secondAttribute="leading" id="Q1T-hl-e5o"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jwz-rB-LVf" secondAttribute="trailing" constant="-7" id="YXa-IV-FQN"/>
                             <constraint firstItem="OSm-nY-TYt" firstAttribute="top" secondItem="qM8-cX-W0a" secondAttribute="bottom" id="qKU-6K-fTv"/>
                             <constraint firstItem="qM8-cX-W0a" firstAttribute="top" secondItem="qHS-or-HX7" secondAttribute="top" id="yya-WN-pME"/>
                         </constraints>
@@ -155,4 +190,7 @@
             <point key="canvasLocation" x="111" y="-549"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="around-me" width="18" height="18"/>
+    </resources>
 </document>

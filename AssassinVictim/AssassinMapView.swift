@@ -56,7 +56,6 @@ class AssassinMapView: BaseMapView {
     func annotationViewForVictim(victimId:String) -> (MKAnnotationView?) {
         var theAnnotationView : MKAnnotationView?
         if let victimAnnotation = annotationForVictim(victimId) {
-            self.zoomToFit(victimAnnotation, animated:false)
             if let selectedView = self.mapView?.viewForAnnotation(victimAnnotation) {
                 theAnnotationView = selectedView
             }
@@ -235,29 +234,6 @@ class AssassinMapView: BaseMapView {
             self.mapView?.selectAnnotation(victimAnnotation, animated: true)
             if userManuallySelected == true {
                 self.delegate?.userSelectedAVictim(victimAnnotation.victim)
-            }
-        }
-    }
-    
-    func zoomToFit(annotation: VictimAnnotation, animated: Bool) {
-        var allLocations:[CLLocationCoordinate2D] = []
-        if let annotationCoordinates = annotation.coordinate as CLLocationCoordinate2D! {
-            let annotationLocation = CLLocation(latitude: annotationCoordinates.latitude, longitude: annotationCoordinates.longitude)
-            if let distance = self.mapView?.userLocation.location?.distanceFromLocation(annotationLocation) {
-                if distance <= kRouteRangeMax {
-                    if let locationUser = self.mapView?.userLocation.coordinate as CLLocationCoordinate2D! {
-                        allLocations.append(locationUser)
-                        allLocations.append(annotation.coordinate)
-                        let poly:MKPolygon = MKPolygon(coordinates: &allLocations, count: allLocations.count)
-                        self.mapView?.setVisibleMapRect(poly.boundingMapRect, edgePadding: UIEdgeInsetsMake(50.0, 50.0, 100.0, 100.0), animated: animated)
-                        return
-                    }
-                }
-            }
-            
-            if MKMapRectContainsPoint((self.mapView?.visibleMapRect)!, MKMapPointMake(annotationCoordinates.latitude, annotationCoordinates.longitude)) == false {
-                self.lastSelectedAnnotation = annotation
-                self.mapView?.setCenterCoordinate(annotationCoordinates, animated: animated)
             }
         }
     }

@@ -81,25 +81,23 @@ class BaseMapView: UIView, MKMapViewDelegate {
         if mapAnnotations == nil ? true : mapAnnotations!.count <= 0 {
             return
         }
-//        
-//        var mutableArr = NSMutableArray(array: mapAnnotations!)
-//        var userIsNearToResults = false
         
-//        if let _ = self.mapView?.userLocation {
-//            for theAnnotation in mapAnnotations! {
-//                if theAnnotation != self.mapView!.userLocation {
-//                    let itemLocation = CLLocation(latitude:theAnnotation.coordinate.latitude, longitude: theAnnotation.coordinate.longitude)
-//                    if self.mapView?.userLocation.location?.distanceFromLocation(itemLocation) <= kRouteRangeMax {
-//                     userIsNearToResults = true
-//                    }
-//                }
-//            }
-//        }
-//        if userIsNearToResults == false {
-//            mutableArr.removeObject(self.mapView!.userLocation)
-//        }
+        let mutableArr = NSMutableArray(array: mapAnnotations!)
+        var userIsNearToResults = false
         
-        self.mapView?.showAnnotations(mapAnnotations!, animated: true)
+        if let _ = self.mapView?.userLocation {
+            for theAnnotation in mapAnnotations! {
+                if let _ = theAnnotation as? VictimAnnotation {
+                    let itemLocation = CLLocation(latitude:theAnnotation.coordinate.latitude, longitude: theAnnotation.coordinate.longitude)
+                    if self.mapView?.userLocation.location?.distanceFromLocation(itemLocation) <= kRouteRangeMax {
+                     userIsNearToResults = true
+                    }
+                }
+            }
+        }
+        if userIsNearToResults == false {
+            mutableArr.removeObject(self.mapView!.userLocation)
+        }
     }
     
     func currentZoomLevel() -> Double {
