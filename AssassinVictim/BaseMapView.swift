@@ -81,8 +81,7 @@ class BaseMapView: UIView, MKMapViewDelegate {
         if mapAnnotations == nil ? true : mapAnnotations!.count <= 0 {
             return
         }
-        
-        let mutableArr = NSMutableArray(array: mapAnnotations!)
+        var annotations : Array<MKAnnotation> = []
         var userIsNearToResults = false
         
         if let _ = self.mapView?.userLocation {
@@ -92,12 +91,17 @@ class BaseMapView: UIView, MKMapViewDelegate {
                     if self.mapView?.userLocation.location?.distanceFromLocation(itemLocation) <= kRouteRangeMax {
                      userIsNearToResults = true
                     }
+                    annotations.append(theAnnotation)
+                }
+                else if let _ = theAnnotation as? MKUserLocation {
+                    if userIsNearToResults == true {
+                        annotations.append(theAnnotation)
+                    }
                 }
             }
         }
-        if userIsNearToResults == false {
-            mutableArr.removeObject(self.mapView!.userLocation)
-        }
+        
+        self.mapView?.showAnnotations(annotations, animated: true)
     }
     
     func currentZoomLevel() -> Double {

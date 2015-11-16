@@ -19,6 +19,8 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
     let kSearchMaxZoomLevel: Double = 10
     var relocateWhenChanged: Bool = false
     var firstLoad: Bool = true
+    private let refreshDelayInterval: NSTimeInterval = 20
+    private var refreshDelayTimer: NSTimer?
     
     // MARK: - Life Cycle methods
     func removeThingsBeforePop() {
@@ -71,6 +73,7 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
                 self?.mapView?.reloadMap((self?.victimList!)!)
             }
         }
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -152,6 +155,15 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
                 }
                 
             }
+        
+        self.invalidateExistingTimer()
+        refreshDelayTimer = NSTimer.scheduledTimerWithTimeInterval(
+            refreshDelayInterval,
+            target: self,
+            selector: "redoSearch",
+            userInfo: nil,
+            repeats: false)
+
         //}
     }
     
@@ -206,9 +218,15 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
     }
     
     @IBAction func exitButtonPressed(sender: UIButton) {
-        self.dismissViewControllerAnimated(true) { () -> Void in
-            
-        }
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
+    func invalidateExistingTimer() -> Bool {
+        if let existingDelayTimer = refreshDelayTimer {
+            existingDelayTimer.invalidate()
+            refreshDelayTimer = nil
+            return true
+        }
+        return false
+    }
 }
