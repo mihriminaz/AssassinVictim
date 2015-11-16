@@ -27,8 +27,8 @@ class VictimDetailViewController : BaseLoginNeededViewController, UIAlertViewDel
         
         if let aVictim = victim where (PlayerManager.sharedInstance.assassinUser != nil) {
         let victimLocation = CLLocationCoordinate2DMake(aVictim.location.latitude, aVictim.location.longitude)
-        if GeolocationHelper.shared().distanceInMetersFrom(victimLocation) > 100000 {
-            //if victim is 100 meters away you can not shoot
+        if GeolocationHelper.shared().distanceInMetersFrom(victimLocation) > 5000 {
+            //if victim is 5000 meters away you can not shoot
             
             let alert = UIAlertView(title: NSLocalizedString("Get closer", comment:""),
                 message: NSLocalizedString("Victim is far away, go there!", comment:""),
