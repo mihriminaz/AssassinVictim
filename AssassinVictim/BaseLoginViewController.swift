@@ -11,7 +11,10 @@ import Foundation
 class BaseLoginNeededViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        showLoginPage()
+        
+        if (PFUser.currentUser() == nil) {
+            showLoginPage()
+        }
     }
     
     func showLoginPage() {

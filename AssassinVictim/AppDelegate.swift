@@ -46,11 +46,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-                    let types: UIUserNotificationType = [.Alert, .Badge, .Sound]
-                    let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
-                    application.registerUserNotificationSettings(settings)
-                    application.registerForRemoteNotifications()
-      
+        let types: UIUserNotificationType = [.Alert, .Badge, .Sound]
+        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
+        let navBar = UINavigationController(rootViewController: mainVC)
+        
+        self.window?.addSubview(navBar.view)
+        window?.makeKeyAndVisible()
         
         return true
     }
@@ -89,10 +96,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-         if application.applicationState == UIApplicationState.Inactive {
-             PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
-         }
-     }
+        if application.applicationState == UIApplicationState.Inactive {
+            PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
+        }
+    }
     
     func applicationDidBecomeActive(application: UIApplication) {
         FBSDKAppEvents.activateApp()

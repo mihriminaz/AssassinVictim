@@ -59,7 +59,7 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
         self.mapView?.delegate = self
         prepareForOpenWithReload()
         self.relocateMeButton?.setImage(GeolocationHelper.shared().locationServicesAreEnabled() ? UIImage(named: "around-me") : UIImage(named: "around-me-disabled"), forState: .Normal)
-        
+        self.navigationController?.navigationBarHidden = true
         if self.firstLoad == true {
             self.reloadMapData()
         }
@@ -71,9 +71,11 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
                 self?.mapView?.reloadMap((self?.victimList!)!)
             }
         }
-
-        
-       
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBarHidden = false
     }
     
     func pageVisuals() {
@@ -95,22 +97,15 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
         self.reloadMapData()
     }
     
-    
-    func victimWasTapped(victim: Victim) {
-        
-    }
-    
     func mapRegionDidChange() {
         self.redoSearchButton?.enabled = true
     }
     
     func userSelectedAVictim(selectedVictim: Victim!) {
-        //scroll to the item in the list
-        
-//        if let _ = victimList.indexOfObject(selectedVictim)
-//        {
-//            
-//        }
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let victimDetailVC = storyboard.instantiateViewControllerWithIdentifier("VictimDetailViewController") as! VictimDetailViewController
+            victimDetailVC.victim = selectedVictim
+            self.navigationController?.pushViewController(victimDetailVC, animated: true)
     }
     
     func userInteractionEnabled(isEnabled:Bool){
@@ -121,6 +116,7 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
     
     @IBAction func redoSearchButtonPressed(sender: UIButton) {
     }
+    
     func redoSearch(){
         print("redoSearch")
         if self.resultsLoading == false {
@@ -170,7 +166,7 @@ class GameMapViewController: BaseLoginNeededViewController, AssassinMapViewDeleg
                 let askToChangeLocationSettings = UIAlertView(title: NSLocalizedString("Warning", comment:""),
                     message: NSLocalizedString("Please allow the app to access your location first", comment:""),
                     delegate: self,
-                    cancelButtonTitle: NSLocalizedString("Abbrechen", comment:""),
+                    cancelButtonTitle: NSLocalizedString("Cancel", comment:""),
                     otherButtonTitles: NSLocalizedString("OK", comment:""))
                 askToChangeLocationSettings.tag = kLocationAlertTag
                 askToChangeLocationSettings.show()

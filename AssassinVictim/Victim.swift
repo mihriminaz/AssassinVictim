@@ -31,10 +31,9 @@ import Foundation
         return query
     }
     
-    init(location:PFGeoPoint, objectId: String, userId: PFUser, hitPoint: Int) {
+    init(location:PFGeoPoint, userId: PFUser, hitPoint: Int) {
         super.init()
         self.location = location
-        self.objectId = objectId
         self.userId = userId
         self.hitPoint = hitPoint
     }
