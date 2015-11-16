@@ -118,6 +118,7 @@ class AssassinMapView: BaseMapView {
             }
         }
         }
+        self.zoomToFitMapAnnotations(self.mapView?.annotations)
     }
     
     func maxZoomOfLevelReached() -> Bool {
