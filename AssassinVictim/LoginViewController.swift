@@ -26,11 +26,13 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
                 PFLogInFields.UsernameAndPassword.rawValue |
                     PFLogInFields.LogInButton.rawValue |
                     PFLogInFields.PasswordForgotten.rawValue |
-                PFLogInFields.SignUpButton.rawValue
-                    //| PFLogInFields.Facebook.rawValue
+                   PFLogInFields.SignUpButton.rawValue
+                    | PFLogInFields.Facebook.rawValue
         )
 
-            loginViewController.emailAsUsername = true
+        loginViewController.logInView?.facebookButton?.addTarget(self, action:"fbLoginClick", forControlEvents: .TouchUpInside)
+        
+        loginViewController.emailAsUsername = true
         loginViewController.signUpController?.delegate = self
         
         let imageView2 = UIImageView(image: UIImage(named: "Assassin"))
@@ -55,12 +57,29 @@ class LoginViewController: UIViewController, PFLogInViewControllerDelegate, PFSi
     
     func presentLoggedInAlert() {
         self.dismissViewControllerAnimated(true, completion: nil)
-//        let alertController = UIAlertController(title: "You're logged in", message: "Welcome to Assassin!", preferredStyle: .Alert)
-//        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-//            self.dismissViewControllerAnimated(true, completion: nil)
-//        }
-//        alertController.addAction(OKAction)
-//        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+  func fbLoginClick() {
+    let permissions = ["public_profile", "email"] as [String]
+    
+    PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions) { (user: PFUser?, error: NSError?) -> Void in
+          if user == nil
+          {
+            if error == nil  {
+                print("The user cancelled the Facebook login.")
+            } else {
+                print("An error occurred: \(error)")
+            }
+            
+          } else if user!.isNew
+          {
+            self.presentLoggedInAlert()
+            print("User signed up and logged in through Facebook! \(user)")
+          } else {
+            self.presentLoggedInAlert()
+            print("User logged in through Facebook! \(user)")
+        }
+        }
     }
 }
 
